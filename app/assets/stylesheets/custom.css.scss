@@ -49,7 +49,9 @@ p {
   font-size: 1.1em;
   line-height: 1.7em;
   }
+
 /*logo*/
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -96,6 +98,7 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
 /* miscellaneous */
 
 .debug_dump {
@@ -140,6 +143,7 @@ footer ul li {
     margin-top: 15px;
   }
 }
+
 /*form*/
 
   input, textarea, select, .uneditable-input {
@@ -187,5 +191,55 @@ footer ul li {
 overflow: auto;
 padding: 10px 0;
 border-bottom:  1px solid $gray-lighter;
+  }
+}
+
+/* microposts */
+
+.microposts {
+  list-style: none;
+  padding: 50;
+ /* padding-left: 100px;*/
+  li {
+    padding: 10px 0;
+    border-top: 2px solid #e8e8e8;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 150px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
   }
 }
