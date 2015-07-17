@@ -23,7 +23,7 @@ class PasswordResetsController < ApplicationController
   def edit
   end
 
-def update
+  def update
     if params[:user][:password].empty?
       flash.now[:danger] = "Password can't be empty"
       render 'edit'
@@ -38,27 +38,27 @@ def update
 
   private
 
-    def user_params
-      params.require(:user).permit(:password, :password_confirmation)
-    end
+  def user_params
+    params.require(:user).permit(:password, :password_confirmation)
+  end
 
-    def get_user
-      @user = User.find_by(email: params[:email])
-    end
+  def get_user
+    @user = User.find_by(email: params[:email])
+  end
 
-    # Confirms a valid user.
-    def valid_user
-      unless (@user && @user.activated? &&
-              @user.authenticated?(:reset, params[:id]))
-        redirect_to root_url
-      end
+  # Confirms a valid user.
+  def valid_user
+    unless (@user && @user.activated? &&
+            @user.authenticated?(:reset, params[:id]))
+      redirect_to root_url
     end
+  end
 
-    def check_expiration
-      if @user.password_reset_expired?
-        flash[:danger] = "Password reset has expired."
-        redirect_to new_password_reset_url
-      end
+  def check_expiration
+    if @user.password_reset_expired?
+      flash[:danger] = "Password reset has expired."
+      redirect_to new_password_reset_url
     end
+  end
 
 end
